@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace App.Fetures.Scripts.PipesMechanics
+namespace App.Features.Scripts.PipesMechanics
 {
     public class Pipes : MonoBehaviour
     {

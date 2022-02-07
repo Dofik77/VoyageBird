@@ -710,7 +710,7 @@ MonoBehaviour:
     type: 3}
   _pipes: {fileID: 1160137643}
   _scoreView: {fileID: 1769029504}
-  _button: {fileID: 49734645}
+  _restartButton: {fileID: 49734645}
   _imageClick: {fileID: 595795816}
   _imageGameOver: {fileID: 1361006705}
 --- !u!4 &1166530177

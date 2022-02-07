@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace App.Fetures.Scripts.PipesMechanics
+namespace App.Features.Scripts.PipesMechanics
 {
     public class Pipe : MonoBehaviour
     {
@@ -22,8 +22,6 @@ namespace App.Fetures.Scripts.PipesMechanics
 
         private void Update()
         {
-            Move();
-            
             if(IsOut())
                 Out?.Invoke(this);
         }

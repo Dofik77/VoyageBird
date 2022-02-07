@@ -1,6 +1,5 @@
 using System;
-using App.Fetures.Scripts;
-using App.Fetures.Scripts.PipesMechanics;
+using App.Features.Scripts.PipesMechanics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,7 +11,7 @@ namespace App.Features.Scripts
         [SerializeField] private Bird _birdPrefab;
         [SerializeField] private Pipes _pipes;
         [SerializeField] private ScoreView _scoreView;
-        [SerializeField] private Button _button;
+        [SerializeField] private Button _restartButton;
 
         [SerializeField] private Image _imageClick;
         [SerializeField] private Image _imageGameOver;
@@ -22,7 +21,7 @@ namespace App.Features.Scripts
 
         private void Start()
         {
-            _button.gameObject.SetActive(false);
+            _restartButton.gameObject.SetActive(false);
             _imageClick.gameObject.SetActive(true);
             _imageGameOver.gameObject.SetActive(false);
             
@@ -51,15 +50,16 @@ namespace App.Features.Scripts
         private void OnPipePassed()
         {
             _score.Value++;
-            print(_score.Value);
         }
         
-        private void OnBirdDied()
+        private void OnBirdDied(Bird bird)
         {
             _pipes.StopMove();
             _bird.BlockJump();
 
-            _button.gameObject.SetActive(true);
+            bird.Died -= OnBirdDied;
+
+            _restartButton.gameObject.SetActive(true);
             _imageClick.gameObject.SetActive(false);
             _imageGameOver.gameObject.SetActive(true);
         }

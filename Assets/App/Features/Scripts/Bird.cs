@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-namespace App.Fetures.Scripts
+namespace App.Features.Scripts
 {
     public class Bird : MonoBehaviour
     {
-        public event Action Died;
+        public event Action<Bird> Died;
         public event Action PipePassed;
         
         [SerializeField] private float _jumpForce;
@@ -25,9 +25,7 @@ namespace App.Fetures.Scripts
             if (_canJump)
             {
                 Jump();
-                print("IsDown");
             }
-                
         }
 
         public void BlockJump()
@@ -48,7 +46,7 @@ namespace App.Fetures.Scripts
 
         private void OnCollisionEnter2D()
         {
-            Died?.Invoke();
+            Died?.Invoke(this);
         }
 
         private void OnTriggerEnter2D(Collider2D collider)

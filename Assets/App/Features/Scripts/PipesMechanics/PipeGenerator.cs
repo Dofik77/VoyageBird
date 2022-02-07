@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace App.Fetures.Scripts.PipesMechanics
+namespace App.Features.Scripts.PipesMechanics
 {
     
     public class  PipeGenerator : MonoBehaviour
